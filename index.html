@@ -16,6 +16,48 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js">
 
     </script>
+
+    <style type="text/css">
+        #dragstartzone {
+            position: relative;
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #333;
+            border-radius: 50%;
+            z-index: 10;
+            -moz-user-select: -moz-none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+        }
+
+        #dragCircle {
+            position: absolute;
+            z-index: 9;
+            border: 1px solid transparent;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 30%);
+            -moz-user-select: -moz-none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+        }
+
+        #dragCircle:hover {
+            background-color: lightcoral;
+        }
+
+        .joystick-container {
+            width: 50%;
+        }
+
+        .joystick-values-container {
+            width: 50%;
+        }
+
+        .joystick-values-container p {
+            margin: 0;
+        }
+    </style>
 </head>
 ​
 
@@ -84,6 +126,28 @@
                                 <h4>Commands</h4>
                             </div>
                             <div class="card-body">
+                                <div class="d-flex justify-content-start">
+                                    <!-- Joystick Section -->
+                                    <div class="joystick-container text-center">
+                                        <h2 class="text-center">Joystick</h2>
+                                        <hr>
+                                        <div id="dragstartzone" @mousedown="startDrag" @mousemove="doDrag"></div>
+                                        <div id="dragCircle" :style="dragCircleStyle"></div>
+                                    </div>
+
+                                    <!-- Joystick Values Section -->
+                                    <div class="joystick-values-container ms-5">
+                                        <h2 class="text-center">Values</h2>
+                                        <hr />
+                                        <!-- Flexbox container to center only the Vertical and Horizontal text -->
+                                        <div class="d-flex flex-column justify-content-center align-items-center"
+                                            style="height: 200px;"> <!-- Adjust height if needed -->
+                                            <p>Vertical: {{ joystick.vertical.toFixed(3) }}</p>
+                                            <br />
+                                            <p>Horizontal: {{ joystick.horizontal.toFixed(3) }}</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

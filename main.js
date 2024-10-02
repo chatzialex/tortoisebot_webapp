@@ -4,7 +4,7 @@ var app = new Vue({
     data: {
         // ROS connection
         ros: null,
-        rosbridge_address: 'wss://i-077c42467f9b32c8f.robotigniteacademy.com/rosbridge/',
+        rosbridge_address: 'wss://i-0f456d561e2a0341d.robotigniteacademy.com/0c4495b7-d9c0-42d2-8492-1364e0f7e7c9/rosbridge/',
         connected: false,
         // dragging data
         dragging: false,

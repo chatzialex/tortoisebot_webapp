@@ -33,6 +33,13 @@ var app = new Vue({
         mapViewer: null,
         mapGridClient: null,
         interval: null,
+        goal: null,
+        action: {
+            goal: { position: {x: 0, y: 0, z: 0} },
+            feedback: { position: {x: 0, y: 0, z: 0}, state: 'idle' },
+            result: { success: false },
+            status: { status: 0, text: '' },
+        },
         // etc
         logs: [],
         loading: false,
@@ -199,6 +206,39 @@ var app = new Vue({
             this.mapViewer.scaleToDimensions(this.mapGridClient.currentGrid.width, this.mapGridClient.currentGrid.height);
             this.mapViewer.shift(this.mapGridClient.currentGrid.pose.position.x, this.mapGridClient.currentGrid.pose.position.y)
             })
+        },
+        // action
+        sendGoal: function(goal) {
+            this.action_goal = goal
+            let actionClient = new ROSLIB.ActionClient({
+                ros : this.ros,
+                serverName : '/tortoisebot_as',
+                actionName : 'course_web_dev_ros/WaypointActionAction'
+            })
+
+            this.goal = new ROSLIB.Goal({
+                actionClient : actionClient,
+                goalMessage: {
+                    ...goal
+                }
+            })
+
+            this.goal.on('status', (status) => {
+                this.action.status = status
+            })
+
+            this.goal.on('feedback', (feedback) => {
+                this.action.feedback = feedback
+            })
+
+            this.goal.on('result', (result) => {
+                this.action.result = result
+            })
+
+            this.goal.send()
+        },
+        cancelGoal: function() {
+            this.goal.cancel()
         },
     },
     mounted() {

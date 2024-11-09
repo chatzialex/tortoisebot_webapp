@@ -11,14 +11,12 @@ roslaunch tortoisebot_gazebo tortoisebot_docking.launch
 Robot server
 ```
 source ~/catkin_ws/devel/setup.bash
-source ~/catkin_ws/carto_ws/install_isolated/setup.bash
 roslaunch tortoisebot_firmware server_bringup.launch
 ```
 
 Mapping
 ```
 source ~/catkin_ws/devel/setup.bash
-source ~/catkin_ws/carto_ws/install_isolated/setup.bash
 roslaunch tortoisebot_slam mapping.launch
 ```
 

@@ -86,7 +86,7 @@ var app = new Vue({
             })
             let message = new ROSLIB.Message({
                 linear: { x: this.joystick.vertical, y: 0, z: 0, },
-                angular: { x: 0, y: 0, z: this.joystick.horizontal, },
+                angular: { x: 0, y: 0, z: -this.joystick.horizontal, },
             })
             topic.publish(message)
         },

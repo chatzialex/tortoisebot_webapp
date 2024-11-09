@@ -140,7 +140,7 @@ var app = new Vue({
             host: host,
             width: 320,
             height: 240,
-            topic: '/raspicam_node/image',
+            topic: '/camera/image_raw',
             ssl: true,
         })
         },

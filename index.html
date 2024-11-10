@@ -144,7 +144,7 @@
                                 <div class="row justify-content-center">
                                     <div class="col-md-6 col-12 d-flex justify-content-center">
                                         <!-- Joystick Section -->
-                                        <div class="joystick-container text-center">
+                                        <div class="joystick-container text-center w-100">
                                             <h2 class="text-center">Joystick</h2>
                                             <hr>
                                             <!-- Joystick Control Area -->
@@ -158,42 +158,48 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-12 mt-4 mt-md-0 d-flex justify-content-center">
-                                        <div class="joystick-values-container ms-5">
+                                    <div class="col-md-6 col-12 mt-4 mt-md-0 d-flex justify-content-center w-100">
+                                        <div class="joystick-values-container ms-5 w-100">
                                             <h2 class="text-center">Waypoints</h2>
                                             <hr />
-                                            <div class="d-flex flex-column justify-content-center align-items-center"
-                                                style="height: 400px; position: relative;">
+                                            <div
+                                                class="d-flex flex-column justify-content-center align-items-center w-100">
                                                 <!-- Container with Background Image -->
-                                                <div class="position-relative"
-                                                    style="background-image: url('tortoise-waypoints.png'); background-size: cover; aspect-ratio: 300 / 375; height: 93.75%; position: relative;">
+                                                <div class="position-relative" style="background-image: url('tortoise-waypoints.png');
+                                                            background-size: contain;
+                                                            background-position: center;
+                                                            background-repeat: no-repeat;
+                                                            width: 100%;
+                                                            padding-bottom: 125%;
+                                                            position: relative;
+                                                            height: 0;">
                                                     <!-- Circular Red Button -->
                                                     <button class="btn btn-danger rounded-circle"
-                                                        style="width: 5%; aspect-ratio: 1; position: absolute; top: 21%; left: 19%; transform: translate(-50%, -50%);"
+                                                        style="width: 10%; height: auto; aspect-ratio: 1; position: absolute; top: 21%; left: 19%; transform: translate(-50%, -50%);"
                                                         @click='sendGoal({ position: {x: -0.4, y:-0.47 , z: 0} })'></button>
                                                     <button class="btn btn-danger rounded-circle"
-                                                        style="width: 5%; aspect-ratio: 1; position: absolute; top: 17.5%; left: 82%; transform: translate(-50%, -50%);"
+                                                        style="width: 10%; aspect-ratio: 1; position: absolute; top: 18.5%; left: 80%; transform: translate(-50%, -50%);"
                                                         @click='sendGoal({ position: {x: -0.5, y:0.5 , z: 0} })'></button>
                                                     <button class="btn btn-danger rounded-circle"
-                                                        style="width: 5%; aspect-ratio: 1; position: absolute; top: 41%; left: 19%; transform: translate(-50%, -50%);"
+                                                        style="width: 10%; aspect-ratio: 1; position: absolute; top: 41%; left: 19%; transform: translate(-50%, -50%);"
                                                         @click='sendGoal({ position: {x: -0.18, y:-0.47 , z: 0} })'></button>
                                                     <button class="btn btn-danger rounded-circle"
-                                                        style="width: 5%; aspect-ratio: 1; position: absolute; top: 41%; left: 52%; transform: translate(-50%, -50%);"
+                                                        style="width: 10%; aspect-ratio: 1; position: absolute; top: 41.5%; left: 51%; transform: translate(-50%, -50%);"
                                                         @click='sendGoal({ position: {x: -0.18, y:0.0 , z: 0} })'></button>
                                                     <button class="btn btn-danger rounded-circle"
-                                                        style="width: 5%; aspect-ratio: 1; position: absolute; top: 41%; left: 82%; transform: translate(-50%, -50%);"
+                                                        style="width: 10%; aspect-ratio: 1; position: absolute; top: 42%; left: 80%; transform: translate(-50%, -50%);"
                                                         @click='sendGoal({ position: {x: -0.18, y:0.5 , z: 0} })'></button>
                                                     <button class="btn btn-danger rounded-circle"
-                                                        style="width: 5%; aspect-ratio: 1; position: absolute; top: 59%; left: 52%; transform: translate(-50%, -50%);"
+                                                        style="width: 10%; aspect-ratio: 1; position: absolute; top: 59%; left: 51%; transform: translate(-50%, -50%);"
                                                         @click='sendGoal({ position: {x: 0.19, y:0.0 , z: 0} })'></button>
                                                     <button class="btn btn-danger rounded-circle"
-                                                        style="width: 5%; aspect-ratio: 1; position: absolute; top: 58%; left: 82%; transform: translate(-50%, -50%);"
+                                                        style="width: 10%; aspect-ratio: 1; position: absolute; top: 58%; left: 80%; transform: translate(-50%, -50%);"
                                                         @click='sendGoal({ position: {x: 0.18, y:0.5 , z: 0} })'></button>
                                                     <button class="btn btn-danger rounded-circle"
-                                                        style="width: 5%; aspect-ratio: 1; position: absolute; top: 85%; left: 20%; transform: translate(-50%, -50%);"
+                                                        style="width: 10%; aspect-ratio: 1; position: absolute; top: 84%; left: 18%; transform: translate(-50%, -50%);"
                                                         @click='sendGoal({ position: {x: 0.65, y: -0.47, z: 0} })'></button>
                                                     <button class="btn btn-danger rounded-circle"
-                                                        style="width: 5%; aspect-ratio: 1; position: absolute; top: 84%; left: 82%; transform: translate(-50%, -50%);"
+                                                        style="width: 10%; aspect-ratio: 1; position: absolute; top: 83%; left: 80%; transform: translate(-50%, -50%);"
                                                         @click='sendGoal({ position: {x: 0.67, y:0.5 , z: 0} })'></button>
                                                 </div>
                                             </div>

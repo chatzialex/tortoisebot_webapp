@@ -85,7 +85,7 @@
                         <p class="text-success" v-if="connected">Connected!</p>
                         <label>ROSBridge address</label>
                         <br>
-                        <input type="text" v-model="rosbridge_address" />
+                        <input type="text" v-model="rosbridge_address" style="width: 100%; box-sizing: border-box;" />
                         <br><br>
                         <button :disabled="loading" class="btn btn-danger" @click="disconnect"
                             v-if="connected">Disconnect!</button>

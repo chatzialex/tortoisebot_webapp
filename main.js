@@ -4,7 +4,7 @@ var app = new Vue({
     data: {
         // ROS connection
         ros: null,
-        rosbridge_address: 'wss://i-0f456d561e2a0341d.robotigniteacademy.com/0c4495b7-d9c0-42d2-8492-1364e0f7e7c9/rosbridge/',
+        rosbridge_address: '',
         connected: false,
         // dragging data
         dragging: false,
@@ -48,6 +48,10 @@ var app = new Vue({
     methods: {
         // helper methods to connect to ROS
         connect: function() {
+            this.cameraContainer = document.getElementById('divCamera')
+            this.mapContainer = document.getElementById('map')
+            this.viewerContainer = document.getElementById('div3DViewer')
+
             this.loading = true
             this.ros = new ROSLIB.Ros({
                 url: this.rosbridge_address
@@ -73,6 +77,10 @@ var app = new Vue({
                 this.unset3DViewer()
                 document.getElementById('map').innerHTML = ''
             })
+
+            window.addEventListener('resize', () => {
+                this.resizeViews();
+            });
         },
         disconnect: function() {
             this.ros.close()
@@ -135,11 +143,12 @@ var app = new Vue({
         let domain = without_wss.split('/')[0] + '/' + without_wss.split('/')[1]
         console.log(domain)
         let host = domain + '/cameras'
-        let viewer = new MJPEGCANVAS.Viewer({
+        
+        this.cameraViewer = new MJPEGCANVAS.Viewer({
             divID: 'divCamera',
             host: host,
-            width: 320,
-            height: 240,
+            width: this.cameraContainer.clientWidth,
+            height: this.cameraContainer.clientHeight,
             topic: '/camera/image_raw',
             ssl: true,
         })
@@ -149,8 +158,8 @@ var app = new Vue({
             this.viewer = new ROS3D.Viewer({
                 background: '#cccccc',
                 divID: 'div3DViewer',
-                width: 400,
-                height: 300,
+                width: this.viewerContainer.clientWidth,
+                height: this.viewerContainer.clientHeight,
                 antialias: true,
                 fixedFrame: 'odom'
             })
@@ -183,6 +192,19 @@ var app = new Vue({
                 loader: ROS3D.COLLADA_LOADER_2
             })
         },
+        resizeViews() {
+            if (this.viewer) {
+                this.viewer.resize(this.viewerContainer.clientWidth, this.viewerContainer.clientHeight);
+            }
+
+            // const mapCanvas = this.mapContainer.querySelector('canvas');
+            // if (mapCanvas) {
+            //    if (mapCanvas.width !== this.mapContainer.clientWidth || mapCanvas.height !== this.mapContainer.clientHeight) {
+            //         mapCanvas.width = this.mapContainer.clientHeight;
+            //        mapCanvas.height = this.mapContainer.clientHeight;
+            //    }
+            // }
+        },
         unset3DViewer() {
             document.getElementById('div3DViewer').innerHTML = ''
         },
@@ -190,8 +212,8 @@ var app = new Vue({
         setupMapViewer () {
             this.mapViewer = new ROS2D.Viewer({
                 divID: 'map',
-                width: 420,
-                height: 360
+                width: this.mapContainer.clientWidth,
+                height: this.mapContainer.clientHeight
             })
 
             // Setup the map client.

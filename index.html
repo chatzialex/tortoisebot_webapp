@@ -34,8 +34,8 @@
         #dragstartzone {
             position: relative;
             display: inline-block;
-            width: 200px;
-            height: 200px;
+            width: 20vh;
+            height: 20vh;
             border: 1px solid #333;
             border-radius: 50%;
             z-index: 10;
@@ -108,8 +108,8 @@
                             <div class="card-header">
                                 <h4>Robot model</h4>
                             </div>
-                            <div class="card-body" style="padding: 0">
-                                <div id="div3DViewer" style="width: 100%; height: 350px;"></div>
+                            <div class="card-body" style="padding: 0; height: 30vh; min-height: 150px">
+                                <div id="div3DViewer" style="width: 100%; height: 100%"></div>
                             </div>
                         </div>
                     </div>
@@ -118,8 +118,8 @@
                             <div class="card-header">
                                 <h4>Generated Map</h4>
                             </div>
-                            <div class="card-body" style="padding: 0">
-                                <div id="map" style="width: 100%; height: 350px;"></div>
+                            <div class="card-body" style="padding: 0; height: 30vh; min-height: 150px">
+                                <div id="map" style="width: 100%; height: 100%"></div>
                             </div>
                         </div>
                     </div>
@@ -130,8 +130,8 @@
                             <div class="card-header">
                                 <h4>Camera</h4>
                             </div>
-                            <div class="card-body" style="padding: 0">
-                                <div id="divCamera" style="width: 100%; height: 350px;"></div>
+                            <div class="card-body" style="padding: 0; height: 45vh; min-height: 225px">
+                                <div id="divCamera" style="width: 100%; height: 100%"></div>
                             </div>
                         </div>
                     </div>
@@ -140,7 +140,7 @@
                             <div class="card-header">
                                 <h4>Commands</h4>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" style="padding: 0; height: 45vh; min-height: 225px">
                                 <div class="row justify-content-center">
                                     <div class="col-md-6 col-12 d-flex justify-content-center">
                                         <!-- Joystick Section -->
@@ -158,12 +158,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-12 mt-4 mt-md-0 d-flex justify-content-center w-100">
-                                        <div class="joystick-values-container ms-5 w-100">
+                                    <div class="col-md-6 col-12 mt-4 mt-md-0 d-flex justify-content-center h-100">
+                                        <div class="joystick-values-container ms-5 h-100">
                                             <h2 class="text-center">Waypoints</h2>
                                             <hr />
                                             <div
-                                                class="d-flex flex-column justify-content-center align-items-center w-100">
+                                                class="d-flex flex-column justify-content-center align-items-center h-100">
                                                 <!-- Container with Background Image -->
                                                 <div class="position-relative" style="background-image: url('tortoise-waypoints.png');
                                                             background-size: contain;

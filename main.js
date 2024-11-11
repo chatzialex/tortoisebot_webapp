@@ -18,6 +18,10 @@ var app = new Vue({
             width: '75px',
             height: '75px',
         },
+        dragZone: {
+            height: 0,
+            width: 0,
+        },
         // joystick valules
         joystick: {
             vertical: 0,
@@ -115,13 +119,15 @@ var app = new Vue({
                 let ref = document.getElementById('dragstartzone')
                 this.dragCircleStyle.display = 'inline-block'
 
+                this.dragZone.width = ref.offsetWidth;
+                this.dragZone.height = ref.offsetHeight;
                 let minTop = ref.offsetTop - parseInt(this.dragCircleStyle.height) / 2
-                let maxTop = minTop + 200
+                let maxTop = minTop + this.dragZone.height;
                 let top = this.y + minTop
                 this.dragCircleStyle.top = `${top}px`
 
                 let minLeft = ref.offsetLeft - parseInt(this.dragCircleStyle.width) / 2
-                let maxLeft = minLeft + 200
+                let maxLeft = minLeft + this.dragZone.width;
                 let left = this.x + minLeft
                 this.dragCircleStyle.left = `${left}px`
 
@@ -129,8 +135,8 @@ var app = new Vue({
             }
         },
         setJoystickVals() {
-            this.joystick.vertical = -1 * ((this.y / 200) - 0.5)
-            this.joystick.horizontal = +1 * ((this.x / 200) - 0.5)
+            this.joystick.vertical = -1 * ((this.y / this.dragZone.height) - 0.5)
+            this.joystick.horizontal = +1 * ((this.x / this.dragZone.width) - 0.5)
         },
         resetJoystickVals() {
             this.joystick.vertical = 0

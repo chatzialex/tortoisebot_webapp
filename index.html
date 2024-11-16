@@ -141,8 +141,9 @@
                                 <h4>Commands</h4>
                             </div>
                             <div class="card-body" style="padding: 0; height: 45vh; min-height: 225px">
-                                <div class="row justify-content-center">
-                                    <div class="col-md-6 col-12 d-flex justify-content-center">
+                                <div class="row justify-content-center"
+                                    style="max-width: 100%; max-height: 100%; margin: 0;">
+                                    <div class="col-md-4 col-12 d-flex justify-content-center">
                                         <!-- Joystick Section -->
                                         <div class="joystick-container text-center w-100">
                                             <h2 class="text-center">Joystick</h2>
@@ -158,49 +159,64 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-12 mt-4 mt-md-0 d-flex justify-content-center h-100">
-                                        <div class="joystick-values-container ms-5 h-100">
+                                    <div class="col-md-8 col-12 mt-4 mt-md-0 d-flex justify-content-center h-100">
+                                        <div class="joystick-values-container ms-5 w-100 h-100">
                                             <h2 class="text-center">Waypoints</h2>
                                             <hr />
-                                            <div
-                                                class="d-flex flex-column justify-content-center align-items-center h-100">
-                                                <!-- Container with Background Image -->
-                                                <div class="position-relative" style="background-image: url('tortoise-waypoints.png');
+                                            <div class="d-flex h-100 w-100">
+                                                <div
+                                                    class="d-flex flex-column justify-content-center align-items-center h-100 w-100">
+                                                    <!-- Container with Background Image -->
+                                                    <div class="position-relative" style="background-image: url('tortoise-waypoints.png');
                                                             background-size: contain;
                                                             background-position: center;
                                                             background-repeat: no-repeat;
                                                             width: 100%;
                                                             padding-bottom: 125%;
                                                             position: relative;
-                                                            height: 0;">
-                                                    <!-- Circular Red Button -->
-                                                    <button class="btn btn-danger rounded-circle"
-                                                        style="width: 10%; height: auto; aspect-ratio: 1; position: absolute; top: 21%; left: 19%; transform: translate(-50%, -50%);"
-                                                        @click='sendGoal({ position: {x: -0.4, y:-0.47 , z: 0} })'></button>
-                                                    <button class="btn btn-danger rounded-circle"
-                                                        style="width: 10%; aspect-ratio: 1; position: absolute; top: 18.5%; left: 80%; transform: translate(-50%, -50%);"
-                                                        @click='sendGoal({ position: {x: -0.5, y:0.5 , z: 0} })'></button>
-                                                    <button class="btn btn-danger rounded-circle"
-                                                        style="width: 10%; aspect-ratio: 1; position: absolute; top: 41%; left: 19%; transform: translate(-50%, -50%);"
-                                                        @click='sendGoal({ position: {x: -0.18, y:-0.47 , z: 0} })'></button>
-                                                    <button class="btn btn-danger rounded-circle"
-                                                        style="width: 10%; aspect-ratio: 1; position: absolute; top: 41.5%; left: 51%; transform: translate(-50%, -50%);"
-                                                        @click='sendGoal({ position: {x: -0.18, y:0.0 , z: 0} })'></button>
-                                                    <button class="btn btn-danger rounded-circle"
-                                                        style="width: 10%; aspect-ratio: 1; position: absolute; top: 42%; left: 80%; transform: translate(-50%, -50%);"
-                                                        @click='sendGoal({ position: {x: -0.18, y:0.5 , z: 0} })'></button>
-                                                    <button class="btn btn-danger rounded-circle"
-                                                        style="width: 10%; aspect-ratio: 1; position: absolute; top: 59%; left: 51%; transform: translate(-50%, -50%);"
-                                                        @click='sendGoal({ position: {x: 0.19, y:0.0 , z: 0} })'></button>
-                                                    <button class="btn btn-danger rounded-circle"
-                                                        style="width: 10%; aspect-ratio: 1; position: absolute; top: 58%; left: 80%; transform: translate(-50%, -50%);"
-                                                        @click='sendGoal({ position: {x: 0.18, y:0.5 , z: 0} })'></button>
-                                                    <button class="btn btn-danger rounded-circle"
-                                                        style="width: 10%; aspect-ratio: 1; position: absolute; top: 84%; left: 18%; transform: translate(-50%, -50%);"
-                                                        @click='sendGoal({ position: {x: 0.65, y: -0.47, z: 0} })'></button>
-                                                    <button class="btn btn-danger rounded-circle"
-                                                        style="width: 10%; aspect-ratio: 1; position: absolute; top: 83%; left: 80%; transform: translate(-50%, -50%);"
-                                                        @click='sendGoal({ position: {x: 0.67, y:0.5 , z: 0} })'></button>
+                                                            height: 0;
+                                                            overflow: hidden;">
+                                                        <!-- Circular Red Button -->
+                                                        <button class="btn btn-danger rounded-circle"
+                                                            style="width: 10%; height: auto; aspect-ratio: 1; position: absolute; top: 21%; left: 19%; transform: translate(-50%, -50%);"
+                                                            @click='sendGoal({ position: {x: -0.4, y:-0.47 , z: 0} })'></button>
+                                                        <button class="btn btn-danger rounded-circle"
+                                                            style="width: 10%; aspect-ratio: 1; position: absolute; top: 18.5%; left: 80%; transform: translate(-50%, -50%);"
+                                                            @click='sendGoal({ position: {x: -0.5, y:0.5 , z: 0} })'></button>
+                                                        <button class="btn btn-danger rounded-circle"
+                                                            style="width: 10%; aspect-ratio: 1; position: absolute; top: 41%; left: 19%; transform: translate(-50%, -50%);"
+                                                            @click='sendGoal({ position: {x: -0.18, y:-0.47 , z: 0} })'></button>
+                                                        <button class="btn btn-danger rounded-circle"
+                                                            style="width: 10%; aspect-ratio: 1; position: absolute; top: 41.5%; left: 51%; transform: translate(-50%, -50%);"
+                                                            @click='sendGoal({ position: {x: -0.18, y:0.0 , z: 0} })'></button>
+                                                        <button class="btn btn-danger rounded-circle"
+                                                            style="width: 10%; aspect-ratio: 1; position: absolute; top: 42%; left: 80%; transform: translate(-50%, -50%);"
+                                                            @click='sendGoal({ position: {x: -0.18, y:0.5 , z: 0} })'></button>
+                                                        <button class="btn btn-danger rounded-circle"
+                                                            style="width: 10%; aspect-ratio: 1; position: absolute; top: 59%; left: 51%; transform: translate(-50%, -50%);"
+                                                            @click='sendGoal({ position: {x: 0.19, y:0.0 , z: 0} })'></button>
+                                                        <button class="btn btn-danger rounded-circle"
+                                                            style="width: 10%; aspect-ratio: 1; position: absolute; top: 58%; left: 80%; transform: translate(-50%, -50%);"
+                                                            @click='sendGoal({ position: {x: 0.18, y:0.5 , z: 0} })'></button>
+                                                        <button class="btn btn-danger rounded-circle"
+                                                            style="width: 10%; aspect-ratio: 1; position: absolute; top: 84%; left: 18%; transform: translate(-50%, -50%);"
+                                                            @click='sendGoal({ position: {x: 0.65, y: -0.47, z: 0} })'></button>
+                                                        <button class="btn btn-danger rounded-circle"
+                                                            style="width: 10%; aspect-ratio: 1; position: absolute; top: 83%; left: 80%; transform: translate(-50%, -50%);"
+                                                            @click='sendGoal({ position: {x: 0.67, y:0.5 , z: 0} })'></button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="d-flex flex-column justify-content-center w-100 h-100"
+                                                    style="padding-left: 15px;">
+                                                    <p class="mb-3">Goal: x={{action.goal.position.x.toFixed(3)}}
+                                                        y={{ action.goal.position.y.toFixed(3) }}</p>
+                                                    <p class="mb-3">Feedback: x={{ action.feedback.position.x.toFixed(3)
+                                                        }}
+                                                        y={{ action.feedback.position.y.toFixed(3) }}</p>
+                                                    <p class="mb-3">State: {{ action.feedback.state}}</p>
+                                                    <button :disabled="loading" @click="cancelGoal"
+                                                        v-if="connected">Cancel</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -212,20 +228,19 @@
                 </div>
             </div>
         </div>
-    </div>
-    ​
-    <script type="text/javascript">
-        // We could have loaded main.js simply with:
-        //  <script type="text/javascript" src="main.js">
-        //
-        // BUT we were having caching-related problems.
-        // Loading main.js with a Date.now() in the URL we avoid using cache
+        ​
+        <script type="text/javascript">
+            // We could have loaded main.js simply with:
+            //  <script type="text/javascript" src="main.js">
+            //
+            // BUT we were having caching-related problems.
+            // Loading main.js with a Date.now() in the URL we avoid using cache
 
-        var script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = 'main.js?v=11.' + Date.now();
-        document.head.appendChild(script);
-    </script>
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = 'main.js?v=11.' + Date.now();
+            document.head.appendChild(script);
+        </script>
 </body>
 ​
 

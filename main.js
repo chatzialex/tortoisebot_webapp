@@ -237,7 +237,7 @@ var app = new Vue({
         },
         // action
         sendGoal: function(goal) {
-            this.action_goal = goal
+            this.action.goal = goal
             let actionClient = new ROSLIB.ActionClient({
                 ros : this.ros,
                 serverName : '/tortoisebot_as',
@@ -261,12 +261,14 @@ var app = new Vue({
 
             this.goal.on('result', (result) => {
                 this.action.result = result
+                this.action.feedback.state = "idle"
             })
 
             this.goal.send()
         },
         cancelGoal: function() {
             this.goal.cancel()
+            this.action.feedback.state = "idle"
         },
     },
     mounted() {

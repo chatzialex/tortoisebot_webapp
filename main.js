@@ -155,7 +155,7 @@ var app = new Vue({
             host: host,
             width: this.cameraContainer.clientWidth,
             height: this.cameraContainer.clientHeight,
-            topic: '/camera/image_raw',
+            topic: '/raspicam_node/image',
             ssl: true,
         })
         },
